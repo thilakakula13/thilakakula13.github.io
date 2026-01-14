@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,422 +11,312 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #fff;
-            background: #0a0e27;
-            position: relative;
-            overflow-x: hidden;
+            color: #333;
+            background: #f5f5f5;
         }
-        
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
-            z-index: 1;
         }
-        
         header {
-            background: rgba(10, 14, 39, 0.85);
-            backdrop-filter: blur(15px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 80px 40px;
+            padding: 60px 20px;
             text-align: center;
             margin-bottom: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            animation: fadeInDown 1s ease-out;
-            border: 1px solid rgba(255,255,255,0.1);
         }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow 3s ease-in-out infinite alternate;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
-        
-        @keyframes glow {
-            from {
-                filter: drop-shadow(0 0 10px #667eea);
-            }
-            to {
-                filter: drop-shadow(0 0 20px #764ba2);
-            }
-        }
-        
         .tagline {
-            font-size: 1.4em;
-            opacity: 0.95;
-            margin-top: 15px;
-            line-height: 1.8;
+            font-size: 1.2em;
+            opacity: 0.9;
         }
-        
         .section {
-            background: rgba(255, 255, 255, 0.97);
-            margin: 30px 0;
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-            color: #333;
-            animation: fadeIn 1s ease-out;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(102, 126, 234, 0.1);
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
-        .section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         h2 {
             color: #667eea;
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            border-bottom: 4px solid #667eea;
-            padding-bottom: 12px;
-            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
         }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: #764ba2;
-        }
-        
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .skill-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.05em;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .skill-badge:hover::before {
-            left: 100%;
-        }
-        
-        .skill-badge:hover {
-            transform: scale(1.15) rotate(-2deg);
-            box-shadow: 0 15px 35px rgba(118, 75, 162, 0.5);
-        }
-        
-        .project {
-            margin: 30px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-            border-left: 6px solid #667eea;
-            border-radius: 12px;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .project:hover {
-            background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
-            border-left-width: 10px;
-            transform: translateX(15px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-        
-        .project h3 {
-            color: #764ba2;
-            font-size: 1.7em;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
             gap: 10px;
         }
-        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .project {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        .project:last-child {
+            border-bottom: none;
+        }
+        .project h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
         .project-tech {
             color: #667eea;
-            font-weight: 700;
-            margin: 12px 0;
-            font-size: 1.05em;
-        }
-        
-        .project p {
-            line-height: 1.8;
-            color: #555;
-            font-size: 1.05em;
-        }
-        
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 35px 0;
-        }
-        
-        .metric-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 25px;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-        
-        .metric-card:hover {
-            transform: translateY(-12px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(118, 75, 162, 0.6);
-        }
-        
-        .metric-number {
-            font-size: 3em;
-            font-weight: 900;
-            display: block;
+            font-size: 0.9em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        
-        .metric-label {
-            font-size: 1.15em;
-            opacity: 0.95;
-            font-weight: 500;
-        }
-        
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 35px 0;
-        }
-        
-        .cert-card {
-            background: white;
-            border: 3px solid #667eea;
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-15px) rotate(1deg);
-            box-shadow: 0 20px 50px rgba(118, 75, 162, 0.35);
-            border-color: #764ba2;
-            border-width: 4px;
-        }
-        
-        .cert-icon {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .cert-title {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-        
-        .cert-issuer {
-            color: #666;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .cert-date {
-            color: #999;
-            font-size: 0.95em;
-            margin-top: 12px;
-            font-style: italic;
-        }
-        
-        .contact-buttons {
+        .contact-links {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            gap: 25px;
             flex-wrap: wrap;
-            margin-top: 35px;
         }
-        
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .contact-btn {
+            background: #667eea;
             color: white;
-            padding: 18px 45px;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1em;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-            position: relative;
-            overflow: hidden;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+        .contact-btn:hover {
+            background: #764ba2;
         }
-        
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(118, 75, 162, 0.6);
-        }
-        
-        .achievement-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-        
-        .achievement-list li {
-            padding: 20px 25px;
-            margin: 15px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-            border-left: 5px solid #667eea;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-        
-        .achievement-list li:hover {
-            background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
-            border-left-width: 10px;
-            transform: translateX(15px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-        }
-        
-        .achievement-list li:before {
-            content: "✓ ";
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.4em;
-            margin-right: 15px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: rgba(10, 14, 39, 0.9);
-            color: white;
-            border-radius: 20px;
-            margin-top: 50px;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
-        }
-        
-        footer p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-        
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.2em;
+                font-size: 2em;
             }
-            .tagline {
-                font-size: 1.1em;
-            }
-            header {
-                padding: 60px 20px;
-            }
-            .section {
-                padding: 30px 20px;
-            }
-            .metrics {
-                grid-template-columns: 1fr;
-            }
-            .certifications {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Thilak Akula</h1>
+        <p class="tagline">Lead ML Platform Engineer | Cloud & AI/ML Specialist | AWS & Terraform Expert</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>About Me</h2>
+            <p>Passionate Cloud Engineer and AI/ML specialist with expertise in building scalable infrastructure and intelligent systems. Currently seeking opportunities in cloud development and machine learning engineering. Based in the Greater Seattle Area, with F-1/OPT status.</p>
+        </section>
+
+        <section class="section">
+            <h2>Core Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">AWS (Lambda, EC2, EKS, S3, RDS, VPC)</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Docker & Kubernetes</span>
+                <span class="skill-tag">CI/CD Pipelines</span>
+                <span class="skill-tag">Serverless Architecture</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">Azure Functions</span>
+                <span class="skill-tag">GCP</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Projects</h2>
+            
+            <div class="project">
+                <h3>🏗️ Cloud Infrastructure Automation</h3>
+                <p class="project-tech">Tech: Terraform, AWS (VPC, ALB, Route 53, EC2, EKS)</p>
+                <p>Designed and deployed scalable cloud infrastructure using Infrastructure as Code. Automated provisioning of VPCs, load balancers, and container orchestration platforms.</p>
+            </div>
+
+            <div class="project">
+                <h3>⚡ Serverless Data Pipeline</h3>
+                <p class="project-tech">Tech: AWS Lambda, S3, RDS, CloudWatch, Python</p>
+                <p>Built end-to-end serverless data processing pipeline for real-time analytics. Implemented event-driven architecture with automatic scaling and monitoring.</p>
+            </div>
+
+            <div class="project">
+                <h3>🤖 ML Model Deployment Platform</h3>
+                <p class="project-tech">Tech: Python, Docker, Kubernetes, AWS EKS, CI/CD</p>
+                <p>Created production-ready machine learning deployment infrastructure with automated testing, versioning, and rollback capabilities.</p>
+            </div>
+
+            <div class="project">
+                <h3>☁️ Multi-Cloud Integration Framework</h3>
+                <p class="project-tech">Tech: AWS, Azure Functions, GCP, Python, Terraform</p>
+                <p>Developed cross-cloud integration solution enabling seamless data flow between AWS, Azure, and GCP environments.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Experience Highlights</h2>
+            <p><strong>Lead ML Platform Engineer @ Deloitte</strong></p>
+            <p>Building and maintaining cloud-based ML platforms, working with AWS services, Terraform for infrastructure automation, and implementing DevOps best practices.</p>
+        </section>
+
+        <section class="section">
+            <h2>Connect With Me</h2>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/thilak-akula" class="contact-btn" target="_blank">LinkedIn</a>
+                <a href="https://github.com/thilakakula13" class="contact-btn" target="_blank">GitHub</a>
+                <a href="mailto:thilakakula@example.com" class="contact-btn">Email Me</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Animated Background Canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<script>
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+
+// Set canvas size
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Particle system for AI/Docker theme
+const particles = [];
+const particleCount = 80;
+
+// Docker/AI symbols
+const symbols = ['🐳', '🤖', 'AI', 'ML', 'K8s', '⚙️', '☁️', '📦', '🔧'];
+
+class Particle {
+    constructor() {
+        this.reset();
+        this.y = Math.random() * canvas.height;
+    }
     
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -canvas.height;
+        this.speed = 0.5 + Math.random() * 1.5;
+        this.symbol = symbols[Math.floor(Math.random() * symbols.length)];
+        this.size = 14 + Math.random() * 12;
+        this.opacity = 0.3 + Math.random() * 0.4;
+        this.drift = (Math.random() - 0.5) * 0.5;
+    }
+    
+    update() {
+        this.y += this.speed;
+        this.x += this.drift;
+        
+        if (this.y > canvas.height + 50) {
+            this.reset();
+        }
+        if (this.x > canvas.width + 50 || this.x < -50) {
+            this.x = Math.random() * canvas.width;
+        }
+    }
+    
+    draw() {
+        ctx.globalAlpha = this.opacity;
+        ctx.font = `${this.size}px Arial`;
+        ctx.fillStyle = '#667eea';
+        ctx.fillText(this.symbol, this.x, this.y);
+    }
+}
+
+// Create particles
+for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+}
+
+// Animated gradient background
+let gradientOffset = 0;
+
+function animate() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Animated gradient
+    gradientOffset += 0.0005;
+    const gradient = ctx.createLinearGradient(
+        0, 0, 
+        canvas.width * Math.cos(gradientOffset),
+        canvas.height * Math.sin(gradientOffset)
+    );
+    gradient.addColorStop(0, '#0f1419');
+    gradient.addColorStop(0.5, '#1a1f2e');
+    gradient.addColorStop(1, '#0f1419');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw grid pattern
+    ctx.strokeStyle = 'rgba(102, 126, 234, 0.05)';
+    ctx.lineWidth = 1;
+    
+    for (let i = 0; i < canvas.width; i += 40) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, canvas.height);
+        ctx.stroke();
+    }
+    
+    for (let i = 0; i < canvas.height; i += 40) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(canvas.width, i);
+        ctx.stroke();
+    }
+    
+    // Update and draw particles
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+    
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(animate);
+}
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+animate();
+</script>
+
+<style>
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+}
+
+body {
+    position: relative;
+    background: transparent !important;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+</style>
+</body>
+</html>
